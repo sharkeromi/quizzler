@@ -14,11 +14,15 @@ void main() {
   ));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
-    runApp(Quizzler());
+    runApp(const Quizzler());
   });
 }
 
 class Quizzler extends StatelessWidget {
+  const Quizzler({super.key});
+
+  
+  @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

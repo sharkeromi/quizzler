@@ -7,7 +7,7 @@ import 'package:quizzler/Widget/textWidget.dart';
 class QuizScreen extends StatelessWidget {
   QuizScreen({super.key});
 
-  QuizController quizController = Get.find<QuizController>();
+  final QuizController quizController = Get.find<QuizController>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,11 @@ class QuizScreen extends StatelessWidget {
               child: Center(
                 child: Obx(
                   () => TextWidget(
-                      text: quizController
-                              .questionBank[quizController.questionNumber.value]
-                              .questionText ??
-                          ''),
+                    text: quizController
+                            .questionBank[quizController.questionNumber.value]
+                            .questionText ??
+                        '',
+                  ),
                 ),
               ),
             ),

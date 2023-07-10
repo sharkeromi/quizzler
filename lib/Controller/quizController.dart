@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizzler/Screen/endScreen.dart';
 import 'package:quizzler/model/quizModel.dart';
 
 class QuizController extends GetxController {
@@ -51,7 +52,7 @@ class QuizController extends GetxController {
 
   bool isFinished() {
     if (questionNumber.value >= questionBank.length - 1) {
-      print('Now returning true');
+      // print('Now returning true');
       return true;
     } else {
       return false;
@@ -59,27 +60,28 @@ class QuizController extends GetxController {
   }
 
   void reset() {
-    print('reset');
+    //print('reset');
     questionNumber.value = 0;
   }
 
   void checkAnswer(bool userPickedAnswer) {
     bool? correctAnswer = getCorrectAnswer();
     if (isFinished() == true) {
-      Get.snackbar(
-        "Finished!",
-        "You've reached the end of the quiz.",
-        margin: const EdgeInsets.all(10),
-        colorText: Colors.white,
-        icon: const Icon(Icons.done_all, color: Colors.white),
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: const Color.fromARGB(255, 0, 236, 28),
-      );
+      // Get.snackbar(
+      //   "Finished!",
+      //   "You've reached the end of the quiz.",
+      //   margin: const EdgeInsets.all(10),
+      //   colorText: Colors.white,
+      //   icon: const Icon(Icons.done_all, color: Colors.white),
+      //   snackPosition: SnackPosition.TOP,
+      //   backgroundColor: const Color.fromARGB(255, 0, 236, 28),
+      // );
 
+      Get.to(() => EndScreen(), transition: Transition.noTransition);
       reset();
 
       scoreKeeper.value = [];
-      print('list cleat');
+      // print('list cleat');
     } else {
       if (userPickedAnswer == correctAnswer) {
         scoreKeeper.add(const Icon(

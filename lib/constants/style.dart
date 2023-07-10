@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler/constants/color.dart';
 
 TextStyle kTextStyle() {
   return const TextStyle(
@@ -7,7 +8,7 @@ TextStyle kTextStyle() {
 
 ButtonStyle kTextButtonStyle(buttonType) {
   return TextButton.styleFrom(
-    backgroundColor: buttonType == "True" ? Colors.green : Colors.red,
+    backgroundColor: buttonType == "False" ? kCFalseButton : kCTrueButton,
     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
     padding: EdgeInsets.zero,
     minimumSize: Size.zero,
